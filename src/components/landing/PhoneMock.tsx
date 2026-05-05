@@ -28,15 +28,15 @@ export function PhoneMock() {
             <div className="flex items-center justify-between text-[11px] text-fg-soft">
               <span>23:41</span>
               <span className="inline-flex items-center gap-1">
-                <Moon className="size-3" /> Sleep
+                <Moon className="size-3" /> Сон
               </span>
             </div>
 
             <p className="mt-7 text-[13px] uppercase tracking-[0.18em] text-fg-soft">
-              Tonight
+              Сегодня ночью
             </p>
             <h3 className="font-display text-3xl leading-tight tracking-tight">
-              Your sleep score
+              Твоя оценка сна
             </h3>
 
             <div className="mt-3 flex justify-center">
@@ -45,17 +45,17 @@ export function PhoneMock() {
                 size={210}
                 thickness={12}
                 band="excellent"
-                label="Excellent"
-                sublabel="Better than 78% of last week"
+                label="Отлично"
+                sublabel="Лучше чем 78% прошлой недели"
                 animate={false}
               />
             </div>
 
             <div className="mt-5 grid grid-cols-3 gap-2">
               {[
-                { l: "Focus", v: "79", c: "#5fe6c1" },
-                { l: "Fatigue", v: "17", c: "#7c8cff" },
-                { l: "Streak", v: "4d", c: "#b08cff" },
+                { l: "Фокус", v: "79", c: "#5fe6c1" },
+                { l: "Усталость", v: "17", c: "#7c8cff" },
+                { l: "Серия", v: "4д", c: "#b08cff" },
               ].map((m) => (
                 <div
                   key={m.l}
@@ -77,10 +77,10 @@ export function PhoneMock() {
             <div className="mt-auto rounded-2xl border border-white/5 bg-white/[0.03] p-3">
               <div className="flex items-center gap-2 text-xs">
                 <Sparkles className="size-3.5 text-[#5fe6c1]" />
-                <span className="font-medium">Tip of the day</span>
+                <span className="font-medium">Совет дня</span>
               </div>
               <p className="mt-1 text-[11px] leading-snug text-fg-soft">
-                Morning sunlight within 30 min of waking anchors your circadian rhythm.
+                Утреннее солнце в течение 30 минут после пробуждения задаёт ритм.
               </p>
             </div>
           </div>
@@ -94,8 +94,8 @@ export function PhoneMock() {
         transition={{ delay: 0.4, duration: 0.7 }}
         className="glass-strong absolute -left-14 top-24 hidden rounded-2xl px-4 py-3 sm:block"
       >
-        <p className="text-[10px] uppercase tracking-widest text-fg-soft">Deep sleep</p>
-        <p className="font-display text-2xl leading-none">1h 42m</p>
+        <p className="text-[10px] uppercase tracking-widest text-fg-soft">Глубокий сон</p>
+        <p className="font-display text-2xl leading-none">1ч 42м</p>
       </motion.div>
 
       <motion.div
@@ -104,8 +104,8 @@ export function PhoneMock() {
         transition={{ delay: 0.55, duration: 0.7 }}
         className="glass-strong absolute -right-10 bottom-32 hidden rounded-2xl px-4 py-3 sm:block"
       >
-        <p className="text-[10px] uppercase tracking-widest text-fg-soft">Streak</p>
-        <p className="font-display text-2xl leading-none text-[#5fe6c1]">4 days</p>
+        <p className="text-[10px] uppercase tracking-widest text-fg-soft">Серия</p>
+        <p className="font-display text-2xl leading-none text-[#5fe6c1]">4 дня</p>
       </motion.div>
     </div>
   );

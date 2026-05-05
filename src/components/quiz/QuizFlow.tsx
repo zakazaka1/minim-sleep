@@ -122,10 +122,10 @@ export function QuizFlow() {
           href="/"
           className="inline-flex items-center gap-2 text-sm text-fg-soft transition hover:text-fg"
         >
-          <ArrowLeft className="size-4" /> Back
+          <ArrowLeft className="size-4" /> Назад
         </Link>
         <div className="text-xs uppercase tracking-[0.2em] text-fg-soft">
-          {isGuest || !session ? "Guest mode" : "Signed in"}
+          {isGuest || !session ? "Гостевой режим" : "Авторизован"}
         </div>
       </div>
 
@@ -193,7 +193,7 @@ export function QuizFlow() {
           disabled={step === 0 || submitting}
           icon={<ArrowLeft className="size-4" />}
         >
-          Previous
+          Назад
         </Button>
         <Button
           variant="primary"
@@ -202,7 +202,7 @@ export function QuizFlow() {
           loading={submitting}
           iconRight={isLast ? <Check className="size-4" /> : <ArrowRight className="size-4" />}
         >
-          {isLast ? "See my score" : "Next"}
+          {isLast ? "Посмотреть результат" : "Дальше"}
         </Button>
       </div>
     </div>

@@ -19,13 +19,13 @@ export function SiteHeader() {
           <span className="font-display text-lg tracking-tight">MinimSleep</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm text-fg-soft sm:flex">
-          <a href="#how" className="hover:text-fg">How it works</a>
-          <a href="#why" className="hover:text-fg">Science</a>
+          <a href="#how" className="hover:text-fg">Как это работает</a>
+          <a href="#why" className="hover:text-fg">Наука</a>
         </nav>
         <div className="flex items-center gap-2">
           {authed ? (
             <Link href="/dashboard">
-              <Button variant="secondary" size="sm">Open dashboard</Button>
+              <Button variant="secondary" size="sm">Открыть панель</Button>
             </Link>
           ) : (
             <Button
@@ -33,11 +33,11 @@ export function SiteHeader() {
               size="sm"
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             >
-              Sign in
+              Войти
             </Button>
           )}
           <Link href="/quiz">
-            <Button variant="primary" size="sm">Start</Button>
+            <Button variant="primary" size="sm">Начать</Button>
           </Link>
         </div>
       </div>

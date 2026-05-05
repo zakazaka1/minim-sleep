@@ -11,8 +11,8 @@ export function QuizToggle({ value, onChange }: Props) {
   return (
     <div className="grid w-full gap-3 sm:grid-cols-2">
       {[
-        { v: true, label: "Yes", hint: "It happened" },
-        { v: false, label: "No", hint: "Didn't this time" },
+        { v: true, label: "Да", hint: "Было такое" },
+        { v: false, label: "Нет", hint: "В этот раз нет" },
       ].map((opt, i) => {
         const selected = value === opt.v;
         return (

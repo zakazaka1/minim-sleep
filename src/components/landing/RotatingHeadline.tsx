@@ -4,9 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const PHRASES = [
-  "You under-sleep, and you don't notice it.",
-  "Your sleep is worse than you think.",
-  "Find out your real sleep level.",
+  "Ты недосыпаешь и не замечаешь этого.",
+  "Твой сон хуже, чем ты думаешь.",
+  "Узнай свой реальный уровень сна.",
 ];
 
 export function RotatingHeadline() {

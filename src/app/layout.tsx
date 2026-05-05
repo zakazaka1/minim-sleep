@@ -18,15 +18,15 @@ const display = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "MinimSleep — quiet sleep analysis",
+  title: "MinimSleep — тихий анализ сна",
   description:
-    "MinimSleep is a minimalist sleep analysis service: take a quick check-in, get a science-grounded sleep score and personal recommendations.",
+    "MinimSleep — минималистичный сервис анализа сна: пройди короткий тест и получи научно обоснованную оценку сна и персональные рекомендации.",
   applicationName: "MinimSleep",
   authors: [{ name: "MinimSleep" }],
-  keywords: ["sleep", "wellness", "tracker", "score", "minimal", "dashboard"],
+  keywords: ["сон", "велнесс", "трекер", "оценка сна", "минимализм", "панель"],
   openGraph: {
     title: "MinimSleep",
-    description: "Quiet, honest sleep analysis.",
+    description: "Тихий, честный анализ сна.",
     type: "website",
   },
 };
@@ -42,7 +42,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${display.variable}`}>
+    <html lang="ru" className={`${inter.variable} ${display.variable}`}>
       <body className="min-h-dvh font-sans text-fg antialiased">
         <SessionProvider>{children}</SessionProvider>
         <Toaster />

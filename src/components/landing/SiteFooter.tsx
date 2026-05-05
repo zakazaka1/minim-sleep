@@ -12,7 +12,7 @@ export function SiteFooter() {
           <span className="font-display text-lg tracking-tight">MinimSleep</span>
         </Link>
         <p className="text-xs text-fg-soft">
-          © {new Date().getFullYear()} MinimSleep. Quiet by design.
+          © {new Date().getFullYear()} MinimSleep. Тишина по дизайну.
         </p>
       </div>
     </footer>

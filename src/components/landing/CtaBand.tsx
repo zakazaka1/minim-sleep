@@ -18,20 +18,20 @@ export function CtaBand() {
         <GlassCard tone="accent" className="overflow-hidden p-10 text-center sm:p-14">
           <Moon className="mx-auto mb-6 size-7 text-[#7c8cff]" />
           <h2 className="font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-            One quiet check-in. <span className="text-gradient">Your real score.</span>
+            Один тихий тест. <span className="text-gradient">Твой реальный результат.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-fg-soft">
-            Ninety seconds. No accounts required. Save your progress with Google when you&rsquo;re ready.
+            Девяносто секунд. Без регистрации. Сохрани прогресс через Google, когда будешь готов.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/quiz" prefetch>
               <Button variant="primary" size="lg" iconRight={<ArrowRight className="size-4" />}>
-                Start the analysis
+                Начать анализ
               </Button>
             </Link>
             <Link href="/quiz?guest=1">
               <Button variant="ghost" size="lg">
-                Continue as guest
+                Продолжить как гость
               </Button>
             </Link>
           </div>

@@ -68,12 +68,12 @@ export function computeSleepScore(a: Answers): SleepScore {
     score >= 85 ? "excellent" : score >= 70 ? "good" : score >= 50 ? "okay" : "poor";
   const bandLabel =
     band === "excellent"
-      ? "Excellent"
+      ? "Отлично"
       : band === "good"
-        ? "Good"
+        ? "Хорошо"
         : band === "okay"
-          ? "Could be better"
-          : "Needs attention";
+          ? "Можно лучше"
+          : "Требует внимания";
 
   return {
     score,
@@ -92,16 +92,16 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (a.sleepHours < 7) {
     recs.push({
       id: "duration-low",
-      title: "Aim for 7–9 hours",
-      body: `You slept ${a.sleepHours}h. Adults need consistent 7–9h to support memory and immunity.`,
+      title: "Стремись к 7–9 часам",
+      body: `Ты спал ${a.sleepHours}ч. Взрослым нужны стабильные 7–9 ч для памяти и иммунитета.`,
       icon: "moon",
       severity: "warn",
     });
   } else if (a.sleepHours > 9.5) {
     recs.push({
       id: "duration-high",
-      title: "Watch for oversleeping",
-      body: "Sleeping over 9.5h regularly can leave you groggy. Try a steady wake-up time.",
+      title: "Осторожно с пересыпом",
+      body: "Регулярный сон больше 9,5 ч может вызвать вялость. Держи стабильное время подъёма.",
       icon: "clock",
       severity: "info",
     });
@@ -110,8 +110,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (a.caffeineLate) {
     recs.push({
       id: "caffeine",
-      title: "Cap caffeine by 2 PM",
-      body: "Caffeine has a 5–6h half-life — afternoon coffee is still in your system at midnight.",
+      title: "Кофеин до 14:00",
+      body: "Период полувыведения кофеина — 5–6 часов: вечером он всё ещё в крови.",
       icon: "coffee",
       severity: "warn",
     });
@@ -120,8 +120,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (a.screensLate) {
     recs.push({
       id: "screens",
-      title: "Dim the last hour",
-      body: "Blue light delays melatonin. Try dim warm light and a paper book before bed.",
+      title: "Приглуши свет за час до сна",
+      body: "Синий свет задерживает мелатонин. Тёплый тусклый свет и бумажная книга лучше.",
       icon: "phone",
       severity: "tip",
     });
@@ -130,8 +130,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (!a.exerciseRegular) {
     recs.push({
       id: "exercise",
-      title: "Move daily, even briefly",
-      body: "A 20-minute walk improves deep sleep latency the same night.",
+      title: "Двигайся ежедневно, хотя бы немного",
+      body: "20 минут ходьбы улучшают глубину сна в ту же ночь.",
       icon: "activity",
       severity: "tip",
     });
@@ -140,8 +140,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (a.consistency === "rarely" || a.consistency === "sometimes") {
     recs.push({
       id: "consistency",
-      title: "Lock in a wake-up time",
-      body: "Your circadian rhythm responds best to a fixed wake-up — even on weekends.",
+      title: "Зафиксируй время подъёма",
+      body: "Циркадный ритм лучше всего реагирует на фиксированное время подъёма — даже на выходных.",
       icon: "clock",
       severity: "warn",
     });
@@ -150,8 +150,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (a.stressLevel >= 7) {
     recs.push({
       id: "stress",
-      title: "Wind-down ritual",
-      body: "Try 5 minutes of slow breathing (4s in, 6s out) — it activates the parasympathetic system.",
+      title: "Ритуал расслабления",
+      body: "5 минут медленного дыхания (4 с вдох, 6 с выдох) — это активирует парасимпатику.",
       icon: "sparkles",
       severity: "tip",
     });
@@ -160,8 +160,8 @@ function buildRecommendations(a: Answers): Recommendation[] {
   if (recs.length === 0) {
     recs.push({
       id: "maintain",
-      title: "Keep your rhythm",
-      body: "Your habits look strong. Protect this routine — especially weekend wake-up times.",
+      title: "Держи свой ритм",
+      body: "Привычки в порядке. Сохрани этот режим — особенно время подъёма на выходных.",
       icon: "sparkles",
       severity: "info",
     });

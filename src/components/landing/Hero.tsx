@@ -26,7 +26,7 @@ export function Hero() {
             className="glass-strong inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-fg-soft"
           >
             <Moon className="size-3.5 text-[#7c8cff]" />
-            <span>Quiet sleep analysis · v1.0</span>
+            <span>Тихий анализ сна · v1.0</span>
           </motion.div>
 
           <motion.h1
@@ -53,8 +53,8 @@ export function Hero() {
             transition={{ delay: 0.25, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 max-w-md text-base text-fg-soft"
           >
-            An intelligent sleep analysis with personal recommendations. Quiet,
-            honest, science-grounded — built for the way you actually live.
+            Интеллектуальный анализ сна с персональными рекомендациями. Тихий,
+            честный, научно обоснованный — под твой ритм жизни.
           </motion.p>
 
           <motion.div
@@ -65,7 +65,7 @@ export function Hero() {
           >
             <Link href="/quiz" prefetch>
               <Button variant="primary" size="lg" iconRight={<ArrowRight className="size-4" />}>
-                Start the analysis
+                Начать анализ
               </Button>
             </Link>
             <Button
@@ -74,11 +74,11 @@ export function Hero() {
               icon={<GoogleIcon />}
               onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
             >
-              Sign in with Google
+              Войти через Google
             </Button>
             <Link href="/quiz?guest=1" className="ml-auto sm:ml-0">
               <Button variant="ghost" size="lg">
-                Continue as guest
+                Продолжить как гость
               </Button>
             </Link>
           </motion.div>
@@ -89,11 +89,11 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="mt-10 flex items-center gap-6 text-xs text-fg-soft"
           >
-            <Stat n="9" label="quick questions" />
+            <Stat n="9" label="быстрых вопросов" />
             <span className="size-1 rounded-full bg-fg-soft/40" />
-            <Stat n="< 90s" label="to your score" />
+            <Stat n="< 90с" label="до результата" />
             <span className="size-1 rounded-full bg-fg-soft/40" />
-            <Stat n="0$" label="forever free" />
+            <Stat n="0₽" label="навсегда бесплатно" />
           </motion.div>
         </div>
       </div>

@@ -8,26 +8,26 @@ const ITEMS = [
   {
     icon: Brain,
     accent: "#7c8cff",
-    title: "Circadian rhythms",
-    body: "Your body runs a 24-hour clock. Drift it, and every system — focus, mood, metabolism — drifts with it.",
-    stat: "24h",
-    statLabel: "internal clock",
+    title: "Циркадные ритмы",
+    body: "Твоё тело работает по 24-часовым часам. Сбей их — и всё посыпется: фокус, настроение, метаболизм.",
+    stat: "24ч",
+    statLabel: "внутренние часы",
   },
   {
     icon: Droplet,
     accent: "#5fe6c1",
-    title: "Melatonin",
-    body: "Released at night to signal sleep. Bright light after dark suppresses it for ~90 minutes.",
-    stat: "90m",
-    statLabel: "delay from screens",
+    title: "Мелатонин",
+    body: "Выделяется ночью как сигнал ко сну. Яркий свет после заката подавляет его на ~90 минут.",
+    stat: "90м",
+    statLabel: "задержка от экранов",
   },
   {
     icon: AlertTriangle,
     accent: "#ff8095",
-    title: "Sleep debt",
-    body: "Just one short night drops cognitive performance similar to mild alcohol intoxication.",
+    title: "Недосып",
+    body: "Одна короткая ночь снижает когнитивные функции как лёгкое алкогольное опьянение.",
     stat: "−30%",
-    statLabel: "next-day focus",
+    statLabel: "фокус на следующий день",
   },
 ];
 
@@ -36,10 +36,10 @@ export function WhySleepMatters() {
     <section className="relative mx-auto max-w-7xl px-6 py-24">
       <header className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-fg-soft">
-          Why sleep matters
+          Почему сон важен
         </p>
         <h2 className="mt-3 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-          The body keeps score.
+          Тело ведёт счёт.
         </h2>
       </header>
 

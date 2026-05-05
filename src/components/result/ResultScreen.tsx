@@ -80,7 +80,7 @@ export function ResultScreen() {
     return (
       <main className="relative isolate min-h-dvh">
         <Aurora />
-        <div className="grid min-h-dvh place-items-center text-fg-soft">Loading…</div>
+        <div className="grid min-h-dvh place-items-center text-fg-soft">Загрузка…</div>
       </main>
     );
   }
@@ -90,13 +90,13 @@ export function ResultScreen() {
       <main className="relative isolate min-h-dvh">
         <Aurora />
         <div className="mx-auto max-w-md px-6 py-32 text-center">
-          <h1 className="font-display text-3xl tracking-tight">No result yet</h1>
+          <h1 className="font-display text-3xl tracking-tight">Пока нет результата</h1>
           <p className="mt-3 text-fg-soft">
-            Take the check-in first — it&rsquo;s quick.
+            Сначала пройди тест — это быстро.
           </p>
           <Link href="/quiz" className="mt-8 inline-block">
             <Button variant="primary" size="lg" iconRight={<ArrowRight className="size-4" />}>
-              Start the analysis
+              Начать анализ
             </Button>
           </Link>
         </div>
@@ -112,9 +112,9 @@ export function ResultScreen() {
       <div className="mx-auto max-w-3xl px-6 pb-24 pt-10">
         <header className="flex items-center justify-between">
           <Link href="/" className="text-sm text-fg-soft transition hover:text-fg">
-            ← Home
+            ← Главная
           </Link>
-          <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Your sleep score</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Твоя оценка сна</p>
         </header>
 
         <motion.div
@@ -130,54 +130,54 @@ export function ResultScreen() {
               thickness={16}
               band={score.band}
               label={score.bandLabel}
-              sublabel={`Based on ${recomputed.answers.sleepHours}h sleep`}
+              sublabel={`По ${recomputed.answers.sleepHours} ч сна`}
             />
             <p className="mt-6 text-sm text-fg-soft">
-              Computed from duration · mood · stress · habits · rhythm.
+              Рассчитано по длительности · настроению · стрессу · привычкам · ритму.
             </p>
           </GlassCard>
         </motion.div>
 
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
           <MetricCard
-            label="Focus"
+            label="Фокус"
             value={score.focus}
             unit="%"
             accent="mint"
-            hint="Mental sharpness today"
+            hint="Ясность ума сегодня"
           />
           <MetricCard
-            label="Fatigue"
+            label="Усталость"
             value={score.fatigue}
             unit="%"
             accent="rose"
-            hint="Lower is better"
+            hint="Чем меньше — тем лучше"
           />
           <MetricCard
-            label="Rhythm"
+            label="Ритм"
             value={score.consistency}
             unit="%"
             accent="violet"
-            hint="Bedtime consistency"
+            hint="Стабильность отхода ко сну"
           />
           <MetricCard
-            label="Duration"
+            label="Длительность"
             value={recomputed.answers.sleepHours}
-            unit="h"
+            unit="ч"
             accent="blue"
-            hint="Last night"
+            hint="Прошлой ночью"
           />
         </div>
 
         <section className="mt-12">
           <div className="flex items-end justify-between">
             <div>
-              <h2 className="font-display text-3xl tracking-tight">For tonight</h2>
-              <p className="text-sm text-fg-soft">Personal nudges based on your answers.</p>
+              <h2 className="font-display text-3xl tracking-tight">На сегодняшнюю ночь</h2>
+              <p className="text-sm text-fg-soft">Персональные советы на основе твоих ответов.</p>
             </div>
             <Link href="/quiz">
               <Button variant="ghost" size="sm" icon={<RefreshCw className="size-3.5" />}>
-                Re-take
+                Пройти заново
               </Button>
             </Link>
           </div>
@@ -191,7 +191,7 @@ export function ResultScreen() {
         <section className="mt-10">
           <GlassCard tone="strong" className="p-6 sm:p-8">
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-fg-soft">
-              <Sparkles className="size-3.5 text-[#5fe6c1]" /> Tip of the day
+              <Sparkles className="size-3.5 text-[#5fe6c1]" /> Совет дня
             </div>
             <p className="mt-3 text-balance text-2xl leading-snug tracking-tight">
               {tip}
@@ -203,21 +203,21 @@ export function ResultScreen() {
           {status === "authenticated" ? (
             <GlassCard tone="strong" className="flex flex-wrap items-center justify-between gap-4 p-6">
               <div>
-                <p className="font-medium">Saved to your dashboard.</p>
-                <p className="text-sm text-fg-soft">View history, trends, and re-runs anytime.</p>
+                <p className="font-medium">Сохранено в твоей панели.</p>
+                <p className="text-sm text-fg-soft">История, тренды и повторы доступны в любое время.</p>
               </div>
               <Link href="/dashboard">
                 <Button variant="primary" size="md" iconRight={<ArrowRight className="size-4" />}>
-                  Open dashboard
+                  Открыть панель
                 </Button>
               </Link>
             </GlassCard>
           ) : (
             <GlassCard tone="accent" className="flex flex-wrap items-center justify-between gap-4 p-6">
               <div>
-                <p className="font-medium">Don&rsquo;t lose this — sign in to save your progress.</p>
+                <p className="font-medium">Не потеряй это — войди, чтобы сохранить прогресс.</p>
                 <p className="text-sm text-fg-soft">
-                  Guest results stay only on this device. Sign in to track trends.
+                  Гостевые результаты хранятся только на этом устройстве. Войди, чтобы отслеживать тренды.
                 </p>
               </div>
               <Button
@@ -226,7 +226,7 @@ export function ResultScreen() {
                 icon={<Save className="size-4" />}
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
               >
-                Save with Google
+                Сохранить в Google
               </Button>
             </GlassCard>
           )}

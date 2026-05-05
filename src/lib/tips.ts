@@ -1,14 +1,14 @@
 export const TIPS = [
-  "Morning sunlight within 30 min of waking anchors your circadian rhythm.",
-  "Keep your bedroom 16–19°C — cool rooms drop core body temperature for deep sleep.",
-  "Caffeine has a 5–6h half-life. Last cup before 2 PM.",
-  "If you can't sleep within 20 min, get up and read by dim light. Don't watch the clock.",
-  "Breathwork: 4s inhale, 6s exhale for 5 minutes lowers heart rate and prepares for sleep.",
-  "Alcohol fragments REM sleep — even a single glass shortens deep sleep windows.",
-  "A 20-min walk after lunch improves sleep efficiency the same night.",
-  "Late screens delay melatonin by ~30 min. Switch to warm/dim light an hour before bed.",
-  "Naps are a tool, not a habit — keep them under 25 min and before 3 PM.",
-  "Same wake time every day is the single strongest sleep intervention.",
+  "Утреннее солнце в течение 30 минут после пробуждения задаёт циркадный ритм.",
+  "Держи в спальне 16–19 °C — прохладная комната снижает температуру тела для глубокого сна.",
+  "Период полувыведения кофеина — 5–6 часов. Последняя чашка до 14:00.",
+  "Если не можешь заснуть за 20 минут — встань и почитай при тусклом свете. Не смотри на часы.",
+  "Дыхание: 4 секунды вдох, 6 секунд выдох в течение 5 минут — снижает пульс и готовит ко сну.",
+  "Алкоголь дробит REM-сон — даже один бокал сокращает фазы глубокого сна.",
+  "20-минутная прогулка после обеда улучшает эффективность сна в ту же ночь.",
+  "Поздние экраны задерживают мелатонин примерно на 30 минут. Тёплый тусклый свет за час до сна.",
+  "Дневной сон — инструмент, а не привычка: меньше 25 минут и до 15:00.",
+  "Одно и то же время подъёма каждый день — самое сильное влияние на сон.",
 ];
 
 export function getTipForDate(date = new Date()): string {

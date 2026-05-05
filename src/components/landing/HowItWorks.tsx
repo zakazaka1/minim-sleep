@@ -8,20 +8,20 @@ const STEPS = [
   {
     icon: ClipboardCheck,
     accent: "#7c8cff",
-    title: "Take the check-in",
-    body: "Nine quiet questions about your night. Sliders, taps, no typing.",
+    title: "Пройди тест",
+    body: "Девять коротких вопросов о твоей ночи. Слайдеры, нажатия — без текста.",
   },
   {
     icon: Gauge,
     accent: "#5fe6c1",
-    title: "Get your sleep score",
-    body: "A weighted, transparent score — duration, mood, stress, habits, rhythm.",
+    title: "Получи оценку сна",
+    body: "Взвешенная прозрачная оценка — длительность, настроение, стресс, привычки, ритм.",
   },
   {
     icon: Sparkles,
     accent: "#b08cff",
-    title: "Personal recommendations",
-    body: "A few actionable nudges, calibrated to what you answered. No fluff.",
+    title: "Персональные рекомендации",
+    body: "Несколько конкретных советов на основе твоих ответов. Без воды.",
   },
 ];
 
@@ -30,14 +30,14 @@ export function HowItWorks() {
     <section className="relative mx-auto max-w-7xl px-6 py-24">
       <header className="mx-auto max-w-2xl text-center">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-fg-soft">
-          How it works
+          Как это работает
         </p>
         <h2 className="mt-3 font-display text-4xl leading-tight tracking-tight sm:text-5xl">
-          Three quiet steps.
+          Три простых шага.
         </h2>
         <p className="mt-4 text-base text-fg-soft">
-          Designed to feel like a fitness app, but for the part of life you do
-          with your eyes closed.
+          Спроектировано как фитнес-приложение, но для той части жизни,
+          которую ты проводишь с закрытыми глазами.
         </p>
       </header>
 
@@ -61,7 +61,7 @@ export function HowItWorks() {
                 <s.icon className="size-5" />
               </div>
               <p className="text-xs font-medium uppercase tracking-[0.16em] text-fg-soft">
-                Step {i + 1}
+                Шаг {i + 1}
               </p>
               <h3 className="mt-2 font-display text-2xl tracking-tight">
                 {s.title}

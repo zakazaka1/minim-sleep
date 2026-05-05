@@ -5,7 +5,7 @@ export default function ResultPage() {
   return (
     <Suspense
       fallback={
-        <div className="grid min-h-dvh place-items-center text-fg-soft">Loading…</div>
+        <div className="grid min-h-dvh place-items-center text-fg-soft">Загрузка…</div>
       }
     >
       <ResultScreen />

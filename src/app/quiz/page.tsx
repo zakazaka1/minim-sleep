@@ -9,7 +9,7 @@ export default function QuizPage() {
       <Suspense
         fallback={
           <div className="grid min-h-dvh place-items-center text-fg-soft">
-            Loading…
+            Загрузка…
           </div>
         }
       >

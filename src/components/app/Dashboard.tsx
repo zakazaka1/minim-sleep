@@ -55,14 +55,14 @@ export function Dashboard() {
 
   const greeting = useMemo(() => {
     const h = new Date().getHours();
-    if (h < 5) return "Late night";
-    if (h < 12) return "Good morning";
-    if (h < 18) return "Good afternoon";
-    return "Good evening";
+    if (h < 5) return "Глубокая ночь";
+    if (h < 12) return "Доброе утро";
+    if (h < 18) return "Добрый день";
+    return "Добрый вечер";
   }, []);
 
   if (!loaded) {
-    return <div className="grid min-h-[60dvh] place-items-center text-fg-soft">Loading…</div>;
+    return <div className="grid min-h-[60dvh] place-items-center text-fg-soft">Загрузка…</div>;
   }
 
   if (!latest || !score) {
@@ -71,11 +71,11 @@ export function Dashboard() {
         <GlassCard tone="accent" className="p-10 text-center">
           <h1 className="font-display text-3xl tracking-tight">{greeting}.</h1>
           <p className="mt-3 text-fg-soft">
-            No score yet. Take a 90-second check-in to see your sleep clearly.
+            Пока нет оценки. Пройди 90-секундный тест, чтобы увидеть свой сон.
           </p>
           <Link href="/quiz" className="mt-8 inline-block">
             <Button variant="primary" size="lg" iconRight={<ArrowRight className="size-4" />}>
-              Start the analysis
+              Начать анализ
             </Button>
           </Link>
         </GlassCard>
@@ -92,7 +92,7 @@ export function Dashboard() {
       >
         <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">{greeting}</p>
         <h1 className="mt-2 font-display text-4xl leading-tight tracking-tight">
-          Your sleep <span className="text-gradient">today</span>.
+          Твой сон <span className="text-gradient">сегодня</span>.
         </h1>
       </motion.div>
 
@@ -108,19 +108,19 @@ export function Dashboard() {
             />
           </div>
           <div className="space-y-3">
-            <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Last check-in</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Последний тест</p>
             <p className="font-display text-2xl leading-snug tracking-tight">
-              {timeAgo(latest.createdAt)} · {latest.answers.sleepHours}h sleep
+              {timeAgo(latest.createdAt)} · {latest.answers.sleepHours} ч сна
             </p>
             <div className="grid grid-cols-3 gap-3">
-              <Mini icon={<Zap className="size-4" />} label="Focus" value={`${score.focus}%`} color="#5fe6c1" />
-              <Mini icon={<Battery className="size-4" />} label="Fatigue" value={`${score.fatigue}%`} color="#ff8095" />
-              <Mini icon={<Sparkles className="size-4" />} label="Rhythm" value={`${score.consistency}%`} color="#b08cff" />
+              <Mini icon={<Zap className="size-4" />} label="Фокус" value={`${score.focus}%`} color="#5fe6c1" />
+              <Mini icon={<Battery className="size-4" />} label="Усталость" value={`${score.fatigue}%`} color="#ff8095" />
+              <Mini icon={<Sparkles className="size-4" />} label="Ритм" value={`${score.consistency}%`} color="#b08cff" />
             </div>
             <div className="pt-3">
               <Link href="/quiz">
                 <Button variant="secondary" size="sm" iconRight={<ArrowRight className="size-3.5" />}>
-                  Re-take check-in
+                  Пройти заново
                 </Button>
               </Link>
             </div>
@@ -129,7 +129,7 @@ export function Dashboard() {
       </GlassCard>
 
       <section className="space-y-3">
-        <h2 className="font-display text-2xl tracking-tight">Tonight&rsquo;s nudges</h2>
+        <h2 className="font-display text-2xl tracking-tight">На эту ночь</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {score.recommendations.slice(0, 4).map((r, i) => (
             <RecommendationCard key={r.id} rec={r} index={i} />
@@ -139,7 +139,7 @@ export function Dashboard() {
 
       <GlassCard tone="strong" className="p-6">
         <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-fg-soft">
-          <Sparkles className="size-3.5 text-[#5fe6c1]" /> Tip of the day
+          <Sparkles className="size-3.5 text-[#5fe6c1]" /> Совет дня
         </div>
         <p className="mt-3 text-balance text-xl leading-snug tracking-tight">{tip}</p>
       </GlassCard>
@@ -174,10 +174,10 @@ function Mini({
 function timeAgo(iso: string) {
   const ms = Date.now() - new Date(iso).getTime();
   const m = Math.floor(ms / 60000);
-  if (m < 1) return "Just now";
-  if (m < 60) return `${m}m ago`;
+  if (m < 1) return "Только что";
+  if (m < 60) return `${m} мин назад`;
   const h = Math.floor(m / 60);
-  if (h < 24) return `${h}h ago`;
+  if (h < 24) return `${h} ч назад`;
   const d = Math.floor(h / 24);
-  return `${d}d ago`;
+  return `${d} д назад`;
 }

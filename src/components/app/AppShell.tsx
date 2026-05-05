@@ -7,8 +7,8 @@ import { Home, LogOut, Moon, User2 } from "lucide-react";
 import type { ReactNode } from "react";
 
 const NAV = [
-  { href: "/dashboard", label: "Home", icon: Home },
-  { href: "/profile", label: "Profile", icon: User2 },
+  { href: "/dashboard", label: "Главная", icon: Home },
+  { href: "/profile", label: "Профиль", icon: User2 },
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -31,7 +31,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <span
                 className="size-8 rounded-full bg-cover bg-center ring-1 ring-white/15"
                 style={{ backgroundImage: `url(${session.user.image})` }}
-                aria-label={session.user.name ?? "Profile"}
+                aria-label={session.user.name ?? "Профиль"}
               />
             ) : (
               <span className="grid size-8 place-items-center rounded-full bg-white/[0.06] ring-1 ring-white/10">
@@ -42,7 +42,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
                 className="grid size-8 place-items-center rounded-full text-fg-soft transition hover:bg-white/[0.06] hover:text-fg"
-                aria-label="Sign out"
+                aria-label="Выйти"
               >
                 <LogOut className="size-4" />
               </button>

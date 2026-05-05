@@ -63,7 +63,7 @@ export function Profile() {
   }, [enriched]);
 
   if (!loaded) {
-    return <div className="grid min-h-[60dvh] place-items-center text-fg-soft">Loading…</div>;
+    return <div className="grid min-h-[60dvh] place-items-center text-fg-soft">Загрузка…</div>;
   }
 
   return (
@@ -73,21 +73,21 @@ export function Profile() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Profile</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-fg-soft">Профиль</p>
         <h1 className="mt-2 font-display text-4xl leading-tight tracking-tight">
-          {session?.user?.name ?? "Guest"}.
+          {session?.user?.name ?? "Гость"}.
         </h1>
         <p className="mt-1 text-fg-soft">
-          {session?.user?.email ?? "Your results stay on this device."}
+          {session?.user?.email ?? "Результаты хранятся только на этом устройстве."}
         </p>
       </motion.div>
 
       {!session && (
         <GlassCard tone="accent" className="flex flex-wrap items-center justify-between gap-4 p-6">
           <div>
-            <p className="font-medium">Sign in to keep your history.</p>
+            <p className="font-medium">Войди, чтобы сохранить историю.</p>
             <p className="text-sm text-fg-soft">
-              Track trends across nights, devices, and timezones.
+              Отслеживай тренды ночей, устройств и временных зон.
             </p>
           </div>
           <Button
@@ -95,22 +95,22 @@ export function Profile() {
             size="md"
             onClick={() => signIn("google", { callbackUrl: "/profile" })}
           >
-            Sign in with Google
+            Войти через Google
           </Button>
         </GlassCard>
       )}
 
       <div className="grid grid-cols-2 gap-4">
         <GlassCard className="p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-fg-soft">Average</p>
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-fg-soft">Среднее</p>
           <p className="mt-2 font-display text-4xl leading-none">
             {avg}
             <span className="ml-0.5 align-top text-xl text-fg-soft">%</span>
           </p>
-          <p className="mt-2 text-xs text-fg-soft">across {enriched.length} runs</p>
+          <p className="mt-2 text-xs text-fg-soft">по {enriched.length} тестам</p>
         </GlassCard>
         <GlassCard className="p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.14em] text-fg-soft">Trend</p>
+          <p className="text-xs font-medium uppercase tracking-[0.14em] text-fg-soft">Тренд</p>
           <p
             className="mt-2 inline-flex items-center gap-2 font-display text-4xl leading-none"
             style={{ color: trend >= 0 ? "#5fe6c1" : "#ff8095" }}
@@ -119,16 +119,16 @@ export function Profile() {
             {trend >= 0 ? "+" : ""}
             {trend}
           </p>
-          <p className="mt-2 text-xs text-fg-soft">vs. previous</p>
+          <p className="mt-2 text-xs text-fg-soft">против предыдущего</p>
         </GlassCard>
       </div>
 
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="font-display text-2xl tracking-tight">History</h2>
+          <h2 className="font-display text-2xl tracking-tight">История</h2>
           <Link href="/quiz">
             <Button variant="ghost" size="sm" iconRight={<ArrowRight className="size-3.5" />}>
-              New check-in
+              Новый тест
             </Button>
           </Link>
         </div>
@@ -136,9 +136,9 @@ export function Profile() {
         {enriched.length === 0 ? (
           <GlassCard className="mt-4 p-8 text-center">
             <Sparkles className="mx-auto size-5 text-[#7c8cff]" />
-            <p className="mt-3 font-display text-2xl tracking-tight">No history yet</p>
+            <p className="mt-3 font-display text-2xl tracking-tight">История пуста</p>
             <p className="mt-1 text-sm text-fg-soft">
-              Take your first check-in to see trends.
+              Пройди первый тест, чтобы увидеть тренды.
             </p>
           </GlassCard>
         ) : (
@@ -169,11 +169,11 @@ export function Profile() {
                         hour: "numeric",
                         minute: "2-digit",
                       })}{" "}
-                      · {r.answers.sleepHours}h
+                      · {r.answers.sleepHours} ч
                     </p>
                   </div>
                   <Link href={`/result?id=${encodeURIComponent(r.id)}`} className="text-sm text-fg-soft hover:text-fg">
-                    View →
+                    Открыть →
                   </Link>
                 </GlassCard>
               </motion.div>
