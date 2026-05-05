@@ -1,8 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  Annoyed,
+  Baby,
+  Briefcase,
+  Frown,
+  GraduationCap,
+  Heart,
+  type LucideIcon,
+  Meh,
+  Moon,
+  Rocket,
+  Shuffle,
+  Smile,
+  Sparkles,
+  Target,
+} from "lucide-react";
+import type { ChoiceIcon } from "@/lib/questions";
 
-type Option = { value: string; label: string; emoji?: string };
+const ICONS: Record<ChoiceIcon, LucideIcon> = {
+  baby: Baby,
+  "graduation-cap": GraduationCap,
+  rocket: Rocket,
+  briefcase: Briefcase,
+  annoyed: Annoyed,
+  frown: Frown,
+  meh: Meh,
+  smile: Smile,
+  heart: Heart,
+  target: Target,
+  sparkles: Sparkles,
+  moon: Moon,
+  shuffle: Shuffle,
+};
+
+type Option = { value: string; label: string; icon?: ChoiceIcon };
 
 type Props = {
   options: Option[];
@@ -15,6 +48,7 @@ export function QuizChoice({ options, value, onChange }: Props) {
     <div className="grid w-full gap-3 sm:grid-cols-2">
       {options.map((opt, i) => {
         const selected = opt.value === value;
+        const Icon = opt.icon ? ICONS[opt.icon] : null;
         return (
           <motion.button
             key={opt.value}
@@ -30,13 +64,21 @@ export function QuizChoice({ options, value, onChange }: Props) {
                 : "border-white/[0.06] bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04]"
             }`}
           >
-            {opt.emoji && (
+            {Icon && (
               <span
-                className={`grid size-12 shrink-0 place-items-center rounded-2xl text-2xl transition ${
-                  selected ? "bg-white/[0.1]" : "bg-white/[0.04]"
+                className={`grid size-12 shrink-0 place-items-center rounded-2xl transition ${
+                  selected ? "bg-white/[0.1] text-fg" : "bg-white/[0.04] text-fg-soft"
                 }`}
+                style={
+                  selected
+                    ? {
+                        background:
+                          "radial-gradient(80% 80% at 30% 30%, rgba(124,140,255,0.35), transparent 70%), rgba(255,255,255,0.05)",
+                      }
+                    : undefined
+                }
               >
-                {opt.emoji}
+                <Icon className="size-5" strokeWidth={1.6} />
               </span>
             )}
             <span className="flex-1 text-base font-medium text-fg">{opt.label}</span>

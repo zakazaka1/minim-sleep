@@ -1,12 +1,27 @@
 export type QuestionType = "choice" | "slider" | "toggle" | "time";
 
+export type ChoiceIcon =
+  | "baby"
+  | "graduation-cap"
+  | "rocket"
+  | "briefcase"
+  | "annoyed"
+  | "frown"
+  | "meh"
+  | "smile"
+  | "heart"
+  | "target"
+  | "sparkles"
+  | "moon"
+  | "shuffle";
+
 export type Question =
   | {
       id: string;
       type: "choice";
       title: string;
       subtitle?: string;
-      options: { value: string; label: string; emoji?: string }[];
+      options: { value: string; label: string; icon?: ChoiceIcon }[];
     }
   | {
       id: string;
@@ -33,7 +48,28 @@ export type Question =
       defaultValue: string;
     };
 
+export type AgeBand = "10-13" | "14-17" | "18-25" | "26+";
+
+export const AGE_NORMS: Record<AgeBand, { min: number; max: number }> = {
+  "10-13": { min: 9, max: 11 },
+  "14-17": { min: 8, max: 10 },
+  "18-25": { min: 7, max: 9 },
+  "26+": { min: 7, max: 8 },
+};
+
 export const QUESTIONS: Question[] = [
+  {
+    id: "age",
+    type: "choice",
+    title: "Сколько тебе лет?",
+    subtitle: "Норма сна зависит от возраста",
+    options: [
+      { value: "10-13", label: "10–13", icon: "baby" },
+      { value: "14-17", label: "14–17", icon: "graduation-cap" },
+      { value: "18-25", label: "18–25", icon: "rocket" },
+      { value: "26+", label: "26+", icon: "briefcase" },
+    ],
+  },
   {
     id: "sleepHours",
     type: "slider",
@@ -60,16 +96,22 @@ export const QUESTIONS: Question[] = [
     defaultValue: "07:00",
   },
   {
+    id: "wakeups",
+    type: "toggle",
+    title: "Просыпался ли ночью?",
+    subtitle: "Прерывистый сон снижает восстановление",
+  },
+  {
     id: "mood",
     type: "choice",
     title: "Как ты себя чувствуешь сейчас?",
     subtitle: "Будь честным с собой",
     options: [
-      { value: "awful", label: "Ужасно", emoji: "😩" },
-      { value: "bad", label: "Плохо", emoji: "🙁" },
-      { value: "okay", label: "Нормально", emoji: "😐" },
-      { value: "good", label: "Хорошо", emoji: "🙂" },
-      { value: "perfect", label: "Отлично", emoji: "😄" },
+      { value: "awful", label: "Ужасно", icon: "annoyed" },
+      { value: "bad", label: "Плохо", icon: "frown" },
+      { value: "okay", label: "Нормально", icon: "meh" },
+      { value: "good", label: "Хорошо", icon: "smile" },
+      { value: "perfect", label: "Отлично", icon: "heart" },
     ],
   },
   {
@@ -89,10 +131,10 @@ export const QUESTIONS: Question[] = [
     title: "Насколько стабильно время отхода ко сну?",
     subtitle: "За последние 7 дней",
     options: [
-      { value: "very", label: "Очень стабильно", emoji: "🎯" },
-      { value: "mostly", label: "По большей части", emoji: "✨" },
-      { value: "sometimes", label: "Иногда", emoji: "🌙" },
-      { value: "rarely", label: "Редко", emoji: "🌀" },
+      { value: "very", label: "Очень стабильно", icon: "target" },
+      { value: "mostly", label: "По большей части", icon: "sparkles" },
+      { value: "sometimes", label: "Иногда", icon: "moon" },
+      { value: "rarely", label: "Редко", icon: "shuffle" },
     ],
   },
   {
@@ -116,9 +158,11 @@ export const QUESTIONS: Question[] = [
 ];
 
 export type Answers = {
+  age: AgeBand;
   sleepHours: number;
   bedtime: string;
   wakeup: string;
+  wakeups: boolean;
   mood: "awful" | "bad" | "okay" | "good" | "perfect";
   stressLevel: number;
   consistency: "very" | "mostly" | "sometimes" | "rarely";
@@ -128,9 +172,11 @@ export type Answers = {
 };
 
 export const DEFAULT_ANSWERS: Answers = {
+  age: "18-25",
   sleepHours: 7,
   bedtime: "23:30",
   wakeup: "07:00",
+  wakeups: false,
   mood: "okay",
   stressLevel: 4,
   consistency: "mostly",

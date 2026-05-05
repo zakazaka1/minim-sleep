@@ -5,9 +5,11 @@ import { prisma } from "@/lib/prisma";
 import { computeSleepScore } from "@/lib/sleep-score";
 
 const AnswersSchema = z.object({
+  age: z.enum(["10-13", "14-17", "18-25", "26+"]).default("18-25"),
   sleepHours: z.number().min(0).max(24),
   bedtime: z.string().min(1),
   wakeup: z.string().min(1),
+  wakeups: z.boolean().default(false),
   mood: z.enum(["awful", "bad", "okay", "good", "perfect"]),
   stressLevel: z.number().min(0).max(10),
   consistency: z.enum(["very", "mostly", "sometimes", "rarely"]),

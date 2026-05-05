@@ -92,6 +92,8 @@ export function QuizFlow() {
 
   const value = useMemo(() => {
     switch (q.id) {
+      case "age":
+        return answers.age;
       case "sleepHours":
         return answers.sleepHours;
       case "stressLevel":
@@ -100,6 +102,8 @@ export function QuizFlow() {
         return answers.bedtime;
       case "wakeup":
         return answers.wakeup;
+      case "wakeups":
+        return answers.wakeups;
       case "mood":
         return answers.mood;
       case "consistency":

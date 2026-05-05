@@ -4,10 +4,27 @@ import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { computeSleepScore } from "@/lib/sleep-score";
 
-const AnswersSchema = z.object({
+const PostSchema = z.object({
+  age: z.enum(["10-13", "14-17", "18-25", "26+"]),
   sleepHours: z.number().min(0).max(24),
   bedtime: z.string().min(1),
   wakeup: z.string().min(1),
+  wakeups: z.boolean(),
+  mood: z.enum(["awful", "bad", "okay", "good", "perfect"]),
+  stressLevel: z.number().min(0).max(10),
+  consistency: z.enum(["very", "mostly", "sometimes", "rarely"]),
+  caffeineLate: z.boolean(),
+  screensLate: z.boolean(),
+  exerciseRegular: z.boolean(),
+});
+
+// Read schema is lenient with defaults so legacy rows (without age/wakeups) still parse.
+const ReadSchema = z.object({
+  age: z.enum(["10-13", "14-17", "18-25", "26+"]).default("18-25"),
+  sleepHours: z.number().min(0).max(24),
+  bedtime: z.string().min(1),
+  wakeup: z.string().min(1),
+  wakeups: z.boolean().default(false),
   mood: z.enum(["awful", "bad", "okay", "good", "perfect"]),
   stressLevel: z.number().min(0).max(10),
   consistency: z.enum(["very", "mostly", "sometimes", "rarely"]),
@@ -28,7 +45,7 @@ export async function GET() {
   });
   return NextResponse.json({
     results: rows.map((r) => {
-      const answers = AnswersSchema.parse(JSON.parse(r.answersJson));
+      const answers = ReadSchema.parse(JSON.parse(r.answersJson));
       return {
         id: r.id,
         createdAt: r.createdAt.toISOString(),
@@ -50,7 +67,7 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
-  const parsed = z.object({ answers: AnswersSchema }).safeParse(body);
+  const parsed = z.object({ answers: PostSchema }).safeParse(body);
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
   }
