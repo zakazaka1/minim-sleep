@@ -89,7 +89,7 @@ export function Hero() {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="mt-10 flex items-center gap-6 text-xs text-fg-soft"
           >
-            <Stat n="9" label="быстрых вопросов" />
+            <Stat n="11" label="быстрых вопросов" />
             <span className="size-1 rounded-full bg-fg-soft/40" />
             <Stat n="< 90с" label="до результата" />
             <span className="size-1 rounded-full bg-fg-soft/40" />
